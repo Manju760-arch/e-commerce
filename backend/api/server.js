@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import path from "path";
-import authRoutes from "./routes/auth.js";
-import orderRoutes from "./routes/orderRoutes.js";
-import productRoute from "./routes/productRoute.js";
-import cartRoutes from "./routes/cartRoutes.js";
-import connectDB from "./config/db.js";
+import authRoutes from "../routes/auth.js";
+import orderRoutes from "../routes/orderRoutes.js";
+import productRoute from "../routes/productRoute.js";
+import cartRoutes from "../routes/cartRoutes.js";
+import connectDB from "../config/db.js";
 dotenv.config();
 
 const app = express();
