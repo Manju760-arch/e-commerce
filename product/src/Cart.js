@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "./api";
 
 export default function Cart({ user, cart, setCart, removeFromCart }) {
   const [showForm, setShowForm] = useState(false);
@@ -12,7 +13,7 @@ export default function Cart({ user, cart, setCart, removeFromCart }) {
   useEffect(() => {
     if (!user) return;
     axios
-      .get(`/api/cart/${user._id}`)
+      .get(`${API_BASE_URL}/api/cart/${user._id}`)
       .then((res) => setCart(res.data.items || []))
       .catch((err) => console.error(err));
   }, [user, setCart]);
@@ -23,15 +24,15 @@ if (!cart) return <p>Loading cart...</p>;
   0
 );
 const handleRemove = async (productId) => {
-  await axios.delete(`/api/cart/${user._id}/${productId}`);
+  await axios.delete(`${API_BASE_URL}/api/cart/${user._id}/${productId}`);
 }
 const handleIncrease = async (productId, size) => {
-  const res = await axios.put(`/api/cart/${user._id}/increase/${productId}/${size}`);
+  const res = await axios.put(`${API_BASE_URL}/api/cart/${user._id}/increase/${productId}/${size}`);
   setCart(res.data.items);
 };
 
 const handleDecrease = async (productId, size) => {
-  const res = await axios.put(`/api/cart/${user._id}/decrease/${productId}/${size}`);
+  const res = await axios.put(`${API_BASE_URL}/api/cart/${user._id}/decrease/${productId}/${size}`);
   setCart(res.data.items);
 };
 
@@ -41,7 +42,7 @@ const handleDecrease = async (productId, size) => {
   if (cart.length === 0) return alert("Cart is empty!");
 
   try {
-    const res = await axios.post(`/api/orders/user/${user._id}`, {
+    const res = await axios.post(`${API_BASE_URL}/api/orders/user/${user._id}`, {
   items: cart,
   address,
   phone,

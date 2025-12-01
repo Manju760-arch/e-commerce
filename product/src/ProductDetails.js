@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./productdetails.css";
-
+import { API_BASE_URL } from "./api";
 export default function ProductDetails({ addToCart }) {
   const { productId } = useParams();
 
@@ -13,10 +13,10 @@ export default function ProductDetails({ addToCart }) {
   useEffect(() => {
     async function fetchProduct() {
       try {
-       const res = await axios.get(`/api/products/${productId}`);
+       const res = await axios.get(`${API_BASE_URL}/api/products/${productId}`);
 setProduct(res.data);
 
-const all = await axios.get("/api/products");
+const all = await axios.get(`${API_BASE_URL}/api/products`);
  // Filter same category except itself
         const related = all.data.filter(
           (p) =>

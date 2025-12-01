@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './user.css';
-
+import { API_BASE_URL } from "./api";
 export default function User({ user }) {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
@@ -31,7 +31,7 @@ const getProgressWidth = (status) => {
   // Fetch user orders from backend
   useEffect(() => {
   if (!user) return;
-  axios.get(`/api/orders/user/${user._id}`)
+  axios.get(`${API_BASE_URL}/api/orders/user/${user._id}`)
 
     .then(res => setOrders(res.data)) // use res.data directly
     .catch(err => console.error(err));
@@ -45,7 +45,7 @@ const getProgressWidth = (status) => {
   const handleCancelOrder = async (orderId) => {
   if (!user) return;
   try {
-    const res = await axios.delete(`/api/orders/delete/${orderId}`)
+    const res = await axios.delete(`${API_BASE_URL}/api/orders/delete/${orderId}`)
 
     setOrders(res.data.orders || []);
   } catch (err) {

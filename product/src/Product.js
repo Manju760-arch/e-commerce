@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { API_BASE_URL } from "./api";
 export default function ProductsTable() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState(""); // 🔍 NEW
 
   useEffect(() => {
-    axios.get("/api/products").then((res) => setProducts(res.data));
+    axios.get(`${API_BASE_URL}/api/products`).then((res) => setProducts(res.data));
   }, []);
 
   // 🔍 FILTER BY PRODUCT NAME

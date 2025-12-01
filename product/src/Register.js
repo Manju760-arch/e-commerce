@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './register.css';
-
+import { API_BASE_URL } from "./api";
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export default function Register() {
     e.preventDefault(); // prevent default form submission
 
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),

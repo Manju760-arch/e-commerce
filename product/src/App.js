@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Products from "./Products";
+import { API_BASE_URL } from "./api";
 import Cart from "./Cart";
 import Navbar from "./Navbar";
 import Login from "./Login";
@@ -48,7 +49,7 @@ function AppWrapper({ cart, setCart, products, setProducts }) {
 
   // Fetch products
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error(err));
@@ -57,7 +58,7 @@ function AppWrapper({ cart, setCart, products, setProducts }) {
   // Fetch cart
   useEffect(() => {
     if (!user) return;
-    fetch(`/api/cart/${user._id}`)
+    fetch(`${API_BASE_URL}/api/cart/${user._id}`)
       .then((res) => res.json())
       .then((data) => setCart(data?.items || []))
       .catch((err) => console.error(err));
@@ -69,7 +70,7 @@ const addToCart = async (product, size) => {
   }
 
   try {
-    const res = await fetch(`/api/cart/${user._id}`, {
+    const res = await fetch(`${API_BASE_URL}/api/cart/${user._id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -97,7 +98,7 @@ const addToCart = async (product, size) => {
     if (!user) return;
 
     try {
-      await fetch("/api/cart", {
+      await fetch(`${API_BASE_URL}/api/cart`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId: user._id, cart: updatedCart }),

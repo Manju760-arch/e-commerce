@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { API_BASE_URL } from "./api";
 export default function AdminViewOrders() {
   const [orders, setOrders] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");  // NEW
 
   useEffect(() => {
-    axios.get("/api/orders")
+    axios.get(`${API_BASE_URL}/api/orders`)
       .then(res => setOrders(res.data))
       .catch(err => console.log(err));
   }, []);
 
   const updateStatus = async (orderId, newStatus) => {
     try {
-      const res = await axios.put(`/api/orders/status/${orderId}`, { status: newStatus });
+      const res = await axios.put(`${API_BASE_URL}/api/orders/status/${orderId}`, { status: newStatus });
 
       setOrders(prev =>
         prev.map(o =>
