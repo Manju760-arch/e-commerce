@@ -13,13 +13,11 @@ export default function ProductDetails({ addToCart }) {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        const res = await axios.get(`/api/products/${productId}`);
-        setProduct(res.data);
+       const res = await axios.get(`/api/products/${productId}`);
+setProduct(res.data);
 
-        // Fetch all products for suggestions
-        const all = await axios.get("/api/products");
-
-        // Filter same category except itself
+const all = await axios.get("/api/products");
+ // Filter same category except itself
         const related = all.data.filter(
           (p) =>
             p.category === res.data.category &&
