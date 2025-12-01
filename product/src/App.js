@@ -51,7 +51,8 @@ function AppWrapper({ cart, setCart, products, setProducts }) {
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => setProducts(Array.isArray(data) ? data : []))
+
       .catch((err) => console.error(err));
   }, []);
 
