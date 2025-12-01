@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 app.use(
   cors({
     origin: [
-      "https://e-commerce-product-mauve.vercel.app/",
+      "https://e-commerce-product-mauve.vercel.app",
       "http://localhost:3000"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
