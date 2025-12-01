@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+.user-container {
+  display: flex;               /* enable flexbox */
+  justify-content: center;     /* center horizontally */
+  align-items: center;         /* center vertically */
+  gap: 50px;                   /* space between profile and order */
+  height: 80vh; 
+  text-align: center;
+  padding-top: 80px;  
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    /* optional: make container fill most of viewport */
+}
+
+.profile, .order {
+  flex: 1;                     /* optional: take equal space */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  min-width: 400px;
+  /* optional shadow */
+  max-width: 400px;   
+         /* optional: limit width */
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      
+}
+ul{
+  list-style-type: none;
+}
+.order{
+  max-height: 478px;
+  overflow-y: auto;
+  text-align: center;
+  min-height: 470px;
+}
+.emoji{
+  font-size: 50px;
+}
+
+     .tracking-container {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.tracking-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.tracking-bar {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 20px;
+  position: relative;
+}
+
+.tracking-progress {
+  width: 50%; /* fake static progress */
+  height: 100%;
+  background: #2874f0; /* Flipkart blue */
+  border-radius: 20px;
+}
+
+.tracking-steps {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.tracking-steps span.active {
+  color: #2874f0;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .user-container {
+    flex-direction: column; /* Stack vertically on small screens */
+    align-items: center;
+    height: auto; /* Avoid stretching issues on small screens */
+    padding-top: 120px; /* Keep spacing below navbar */
+  }
+
+  .profile, .order {
+    width: 90%;
+    max-width: none;
+  }
+}
+.tracking-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0; /* gray background */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.tracking-progress {
+  height: 100%;
+  background-color: #4caf50; /* green fill */
+  width: 50%; /* fake progress for demonstration */
+}
+
+.tracking-steps span {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+}
+
+.tracking-steps span.active {
+  color: #4caf50;
+  font-weight: bold;
+}
+.tracking-bar {
+  width: 100%;
+  height: 6px;
+  background: #eee;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.tracking-progress {
+  height: 100%;
+  background: #28a745; /* green */
+  transition: width 0.4s ease;
+}
+

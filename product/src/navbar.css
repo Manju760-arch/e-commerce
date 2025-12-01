@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.navbar-container{
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    background: #0a0404;
+    background: linear-gradient(90deg, rgba(10, 4, 4, 1) 0%, rgba(179, 179, 179, 1) 51%, rgba(0, 0, 0, 1) 100%);
+    position: sticky;   /* makes it sticky */
+  top: 0;             /* stick to the top */
+  z-index: 1000;
+}
+.item{
+    margin-bottom: 16px;
+    padding-left: 10px;
+}
+.brand{
+    text-decoration: none;
+     font-family: "dancing script", sans-serif;
+     font-size: 30px;
+     font-weight: 700;
+    color:white;
+}
+.navlink{
+    padding-right: 5px;
+    padding-left: 5px;
+    list-style-type: none;
+    color: white;
+    text-decoration: none;
+    font-family: "poppins", sans-serif;;
+    font-size: 20px;
+}
+.navitem{
+    list-style: none;
+}
+
+.navlink:hover{
+    background-color: white;
+    color: black;
+    
+}

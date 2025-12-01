@@ -1,0 +1,33 @@
+.text{
+    text-align: center;
+}
+.adminhead{
+    padding-top: 10px;
+    text-align: center;
+}
+.adminlink{
+
+    text-align: center;
+    height: 50px;
+    width: 400px;
+    margin-top: 40px;
+    
+    background-color: black;
+   padding-top: 10px;
+   border-radius: 30px;
+}
+.admincontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.decor{
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+}
+.adminlink:hover{
+    height: 60px;
+    width: 500px;
+}
