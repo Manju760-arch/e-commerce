@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema({
   // 👉 THIS WILL STORE SIZE (S, M, L, XL)
   description: {
     type: [String],   // must be string
-    required: [], // make it required since it is size
+    required: true, // make it required since it is size
   },
 
   image: {

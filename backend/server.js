@@ -10,7 +10,7 @@ import productRoute from "./routes/productRoute.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import connectDB from "./config/db.js";
 dotenv.config();
-
+connectDB();  
 const app = express();
 const __dirname = path.resolve();
 
@@ -34,10 +34,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoute);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err));
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
