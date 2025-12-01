@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
 import path from "path";
@@ -9,7 +10,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import productRoute from "./routes/productRoute.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import connectDB from "./config/db.js";
-dotenv.config();
+
 connectDB();  
 const app = express();
 const __dirname = path.resolve();
